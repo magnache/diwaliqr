@@ -2,39 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
   <title>Diwali - India's Festival of Lights</title>
+  <meta name="description" content="Diwali - India's Festival of Lights. Overview of Deepavali, symbolism of light over darkness, diyas, rangoli, flowers, and sweets.">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- OpenGraph for messaging apps like WhatsApp, Telegram, iMessage -->
+  <meta property="og:title" content="Diwali - India's Festival of Lights">
+  <meta property="og:description" content="Diwali symbolizes the victory of light over darkness and good over evil.">
+  <meta property="og:image" content="assets/images/diwali-family.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+
   <style>
-    * {
+    /* Universal reset & box sizing */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Aptos', Calibri, 'Segoe UI', Arial, sans-serif;
+      /* Native, pristine font stack across iOS, Android, and Desktop */
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       background-color: #ffffff;
-      color: #000000;
-      line-height: 1.5;
-      padding: 40px 20px;
+      color: #111111;
+      line-height: 1.6;
+      /* Safe area insets for iPhone notch, Dynamic Island, and Android gesture bars */
+      padding-top: max(24px, env(safe-area-inset-top));
+      padding-bottom: max(32px, env(safe-area-inset-bottom));
+      padding-left: max(18px, env(safe-area-inset-left));
+      padding-right: max(18px, env(safe-area-inset-right));
       display: flex;
       justify-content: center;
+      min-height: 100vh;
+      min-height: 100svh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .page-container {
       width: 100%;
-      max-width: 780px;
+      max-width: 720px;
+      margin: 0 auto;
       background: #ffffff;
     }
 
-    /* Title */
+    /* Document Title with exact Word colors */
     .title {
       text-align: center;
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      margin-bottom: 24px;
+      font-size: clamp(1.2rem, 5.2vw, 1.7rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      margin-bottom: clamp(18px, 4vw, 26px);
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .c-red { color: #C00000; }
@@ -44,106 +75,136 @@
     .c-orange { color: #E97132; }
     .c-purple { color: #7030A0; }
 
-    /* Photograph */
+    /* Photograph with aspect ratio to prevent CLS */
     .photo-container {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: clamp(20px, 4.5vw, 30px);
+      width: 100%;
     }
 
     .photo-container img {
-      max-width: 440px;
+      max-width: min(100%, 460px);
       width: 100%;
       height: auto;
+      aspect-ratio: 604 / 340;
+      object-fit: cover;
       display: inline-block;
+      border-radius: 2px;
     }
 
-    /* Headings */
+    /* Section Headings */
     .section-title {
       color: #E97132;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: clamp(1.02rem, 4.2vw, 1.15rem);
+      font-weight: 700;
       text-decoration: underline;
-      margin-top: 18px;
-      margin-bottom: 6px;
+      text-underline-offset: 3px;
+      margin-top: clamp(16px, 3.8vw, 22px);
+      margin-bottom: 7px;
+      letter-spacing: 0.01em;
     }
 
-    /* Paragraphs */
+    /* Body Paragraphs */
     p {
-      font-size: 15px;
-      line-height: 1.55;
-      color: #000000;
+      font-size: clamp(0.95rem, 3.8vw, 1.02rem);
+      line-height: 1.62;
+      color: #1a1a1a;
       margin-bottom: 12px;
       text-align: left;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     p strong {
-      font-weight: bold;
+      font-weight: 700;
+      color: #000000;
     }
 
     .link-blue {
       color: #0563C1;
       text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    /* Happy Diwali */
+    /* Closing Greeting */
     .closing {
       text-align: center;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+      font-weight: 700;
       color: #275317;
-      margin-top: 36px;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
+      margin-top: clamp(28px, 6vw, 42px);
+      margin-bottom: clamp(16px, 4vw, 24px);
+      letter-spacing: 0.06em;
     }
 
-    @media (max-width: 600px) {
+    /* Ultra-compact screens (e.g. iPhone SE 1st gen, Galaxy Fold cover, 320px) */
+    @media (max-width: 350px) {
       body {
-        padding: 20px 15px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
       .title {
-        font-size: 20px;
+        font-size: 1.1rem;
       }
-      .closing {
-        font-size: 20px;
+      p {
+        font-size: 0.92rem;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        padding: 0;
+      }
+      .page-container {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="page-container">
-    <div class="title">
+  <main class="page-container">
+    <h1 class="title">
       <span class="c-red">DIWALI</span><span class="c-dash"> - </span><span class="c-green">INDIA’S</span> <span class="c-blue">FESTIVAL</span> <span class="c-orange">OF</span> <span class="c-purple">LIGHTS</span>
-    </div>
+    </h1>
 
     <div class="photo-container">
-      <img src="assets/images/diwali-family.png" alt="Diwali celebration family lighting diyas">
+      <img src="assets/images/diwali-family.png" alt="Diwali celebration family lighting diyas" width="604" height="340" fetchpriority="high">
     </div>
 
-    <div class="section-title">Overview of Diwali</div>
-    <p>
-      Diwali, also known as Deepavali, is one of the most cherished <span class="link-blue">Hindu festivals</span> celebrated with grandeur across India and around the world. Known as the <strong>“Festival of Lights,”</strong> Diwali symbolizes the victory of light over darkness and good over evil. It is a time for families to come together, light diyas, and celebrate with joy and devotion.
-    </p>
+    <section>
+      <h2 class="section-title">Overview of Diwali</h2>
+      <p>
+        Diwali, also known as Deepavali, is one of the most cherished <span class="link-blue">Hindu festivals</span> celebrated with grandeur across India and around the world. Known as the <strong>“Festival of Lights,”</strong> Diwali symbolizes the victory of light over darkness and good over evil. It is a time for families to come together, light diyas, and celebrate with joy and devotion.
+      </p>
+    </section>
 
-    <div class="section-title">The symbolism of Light Over Darkness</div>
-    <p>
-      Diwali’s primary symbolism lies in the victory of light over darkness. Lighting diyas signifies the removal of negativity and ignorance, filling lives with hope and wisdom. This light symbolizes inner peace and knowledge, encouraging individuals to embrace compassion, kindness, and humility.
-    </p>
+    <section>
+      <h2 class="section-title">The symbolism of Light Over Darkness</h2>
+      <p>
+        Diwali’s primary symbolism lies in the victory of light over darkness. Lighting diyas signifies the removal of negativity and ignorance, filling lives with hope and wisdom. This light symbolizes inner peace and knowledge, encouraging individuals to embrace compassion, kindness, and humility.
+      </p>
+    </section>
 
-    <div class="section-title">Core Symbols of Diwali</div>
-    <p>
-      Diwali is celebrated with symbolic items like <strong>diyas, rangoli, sweets, and garlands</strong>. Diyas, central to Diwali decor, symbolize purity and enlightenment, while rangoli designs welcome guests and deities alike. Sweets are shared among family and friends, embodying the joy of togetherness and prosperity.
-    </p>
+    <section>
+      <h2 class="section-title">Core Symbols of Diwali</h2>
+      <p>
+        Diwali is celebrated with symbolic items like <strong>diyas, rangoli, sweets, and garlands</strong>. Diyas, central to Diwali decor, symbolize purity and enlightenment, while rangoli designs welcome guests and deities alike. Sweets are shared among family and friends, embodying the joy of togetherness and prosperity.
+      </p>
+    </section>
 
-    <div class="section-title">Diyas (Oil Lamps), Rangoli, Flowers, Sweets</div>
-    <p>
-      Diyas, or oil lamps, are lit in homes and temples to create an atmosphere of warmth and positivity. Rangoli, often made with coloured powders or flowers, adorns doorsteps and signifies luck and <span class="link-blue">beauty</span>. Flowers decorate puja spaces, and sweets are exchanged to spread joy and friendship during Diwali.
-    </p>
+    <section>
+      <h2 class="section-title">Diyas (Oil Lamps), Rangoli, Flowers, Sweets</h2>
+      <p>
+        Diyas, or oil lamps, are lit in homes and temples to create an atmosphere of warmth and positivity. Rangoli, often made with coloured powders or flowers, adorns doorsteps and signifies luck and <span class="link-blue">beauty</span>. Flowers decorate puja spaces, and sweets are exchanged to spread joy and friendship during Diwali.
+      </p>
+    </section>
 
-    <div class="closing">
+    <div class="closing" aria-label="Greeting">
       HAPPY DIWALI
     </div>
-  </div>
+  </main>
 
 </body>
 </html>
