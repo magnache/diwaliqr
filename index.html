@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diwali - India's Festival of Lights | Deepavali Celebrations</title>
+  <meta name="description" content="Explore the significance, symbolism, and sacred traditions of Diwali - India's cherished Festival of Lights. Featuring Diyas, Rangoli, Sweets, and joyous celebrations.">
+  <meta name="theme-color" content="#0d061a">
+  <meta property="og:title" content="Diwali - India's Festival of Lights">
+  <meta property="og:description" content="Experience the warmth, light, and joy of Deepavali. Explore the symbolism of light over darkness, diyas, rangoli, and sweets.">
+  <meta property="og:image" content="assets/images/diwali_qr_card.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="festive-theme">
+  <!-- Interactive Canvas Layers -->
+  <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
+  <canvas id="fireworksCanvas" class="fireworks-canvas"></canvas>
+
+  <!-- Top Auspicious Festive Toran (Marigold & Mango Leaf Motif) -->
+  <div class="festive-toran" aria-hidden="true">
+    <div class="toran-pattern"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="mainNavbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-icon">🪔</span>
+        <span class="brand-text">
+          <span class="brand-title">DEEPAVALI</span>
+          <span class="brand-subtitle">Festival of Lights</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#symbolism" class="nav-link">Symbolism</a>
+        <a href="#symbols" class="nav-link">Core Symbols</a>
+        <a href="#four-pillars" class="nav-link">Sacred Traditions</a>
+        <a href="#wishes" class="nav-link">Wishes</a>
+        <a href="#qrcode" class="nav-link highlight-link">QR Code</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="audioToggleBtn" class="action-btn audio-btn" title="Toggle Festive Chimes" aria-label="Toggle festive sound">
+          <span class="btn-icon">🔔</span>
+          <span class="btn-label">Music</span>
+        </button>
+        <button id="lightAllDiyasBtn" class="action-btn diya-btn" title="Light All Diyas" aria-label="Kindle all diyas">
+          <span class="btn-icon">✨</span>
+          <span class="btn-label">Kindle Light</span>
+        </button>
+        <button id="openQrModalBtn" class="action-btn qr-nav-btn" title="View Mobile QR Code" aria-label="Open QR Code">
+          <span class="btn-icon">📱</span>
+          <span class="btn-label">Scan QR</span>
+        </button>
+      </div>
+
+      <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#overview" class="drawer-link">Overview</a>
+    <a href="#symbolism" class="drawer-link">Symbolism</a>
+    <a href="#symbols" class="drawer-link">Core Symbols</a>
+    <a href="#four-pillars" class="drawer-link">Sacred Traditions</a>
+    <a href="#wishes" class="drawer-link">Wishes</a>
+    <a href="#qrcode" class="drawer-link drawer-qr-link">📱 Scan QR Code</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-glow"></div>
+      <div class="hero-container">
+        
+        <div class="hero-badge">
+          <span class="sparkle">✨</span>
+          <span>SHUBH DEEPAVALI • CELEBRATING LIGHT OVER DARKNESS</span>
+          <span class="sparkle">✨</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">Diwali</span>
+          <span class="hero-title-sub">India’s Festival of Lights</span>
+        </h1>
+
+        <p class="hero-shloka">
+          <span class="sanskrit">“ असतो मा सद्गमय । तमसो मा ज्योतिर्गमय । मृत्योर्मा अमृतं गमय ॥ ”</span>
+          <span class="translation">“Lead us from untruth to truth, from darkness to light, from mortality to immortality.”</span>
+        </p>
+
+        <!-- Document Original Family Photograph Spotlight -->
+        <div class="hero-showcase">
+          <div class="frame-filigree">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            
+            <div class="image-wrapper">
+              <img src="assets/images/diwali-family.png" alt="Family lighting traditional diyas together on Diwali floor rangoli" class="hero-image" id="heroDiwaliImg">
+              <div class="image-overlay">
+                <span class="image-tag">Traditional Family Celebration</span>
+                <p class="image-caption">Lighting diyas together brings warmth, hope, and togetherness into every home.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-diya-pedestal">
+            <div class="interactive-diya" id="heroInteractiveDiya" title="Click to Kindle the Sacred Diya Flame!">
+              <div class="diya-glow"></div>
+              <div class="diya-flame" id="heroFlame">
+                <div class="flame-inner"></div>
+              </div>
+              <div class="diya-base-svg">
+                <svg viewBox="0 0 100 50" class="clay-diya-svg">
+                  <path d="M10,25 C20,45 80,45 90,25 C80,35 20,35 10,25 Z" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+                  <ellipse cx="50" cy="24" rx="40" ry="10" fill="#92400e" stroke="#fbbf24" stroke-width="1.5"/>
+                  <ellipse cx="50" cy="24" rx="34" ry="7" fill="#f59e0b" opacity="0.8"/>
+                </svg>
+              </div>
+              <span class="diya-hint">Click flame to kindle sparks!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#overview" class="btn btn-primary">
+            <span>Explore the Festival</span>
+            <span class="btn-arrow">↓</span>
+          </a>
+          <a href="#qrcode" class="btn btn-secondary">
+            <span>📱 Get QR Code</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 1: OVERVIEW OF DIWALI -->
+    <section id="overview" class="content-section overview-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">HERITAGE & SIGNIFICANCE</span>
+          <h2 class="section-title">Overview of Diwali</h2>
+          <div class="golden-divider">
+            <span class="divider-line"></span>
+            <span class="divider-gem">🪔</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <div class="overview-grid">
+          <div class="overview-quote-card glass-panel">
+            <div class="quote-mark">“</div>
+            <p class="docx-lead-text">
+              <strong>Diwali</strong>, also known as <strong>Deepavali</strong>, is one of the most cherished <strong>Hindu festivals</strong> celebrated with grandeur across India and around the world.
+            </p>
+            <p class="docx-body-text">
+              Known as the <strong>“Festival of Lights,”</strong> Diwali symbolizes the victory of light over darkness and good over evil. It is a time for families to come together, light diyas, and celebrate with joy and devotion.
+            </p>
+            <div class="quote-footer">
+              <span class="quote-symbol">✨</span>
+              <span>Cherished Heritage of Deepavali</span>
+            </div>
+          </div>
+
+          <div class="overview-pillars-grid">
+            <div class="pillar-mini-card">
+              <div class="mini-icon">👑</div>
+              <div class="mini-content">
+                <h3>Victory of Light</h3>
+                <p>Commemorating the triumph of righteousness, divine truth, and spiritual illumination.</p>
+              </div>
+            </div>
+
+            <div class="pillar-mini-card">
+              <div class="mini-icon">👨‍👩‍👧‍👦</div>
+              <div class="mini-content">
+                <h3>Family & Harmony</h3>
+                <p>Bringing generations together to share feasts, blessings, laughter, and lifelong bonds.</p>
+              </div>
+            </div>
+
+            <div class="pillar-mini-card">
+              <div class="mini-icon">🪔</div>
+              <div class="mini-content">
+                <h3>Sacred Devotion</h3>
+                <p>Welcoming Goddess Lakshmi and Lord Ganesha for prosperity, health, and wisdom.</p>
+              </div>
+            </div>
+
+            <div class="pillar-mini-card">
+              <div class="mini-icon">🌅</div>
+              <div class="mini-content">
+                <h3>Auspicious Beginnings</h3>
+                <p>Cleansing the hearth and mind, inaugurating new ventures with golden optimism.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE SYMBOLISM OF LIGHT OVER DARKNESS -->
+    <section id="symbolism" class="content-section symbolism-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">PHILOSOPHICAL ESSENCE</span>
+          <h2 class="section-title">The Symbolism of Light Over Darkness</h2>
+          <div class="golden-divider">
+            <span class="divider-line"></span>
+            <span class="divider-gem">✨</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <div class="symbolism-card glass-panel" id="symbolismCard">
+          <div class="symbolism-text-box">
+            <p class="docx-lead-text highlight-gold">
+              Diwali’s primary symbolism lies in the victory of light over darkness.
+            </p>
+            <p class="docx-body-text">
+              Lighting diyas signifies the removal of <strong>negativity and ignorance</strong>, filling lives with <strong>hope and wisdom</strong>. This light symbolizes inner peace and knowledge, encouraging individuals to embrace <strong>compassion, kindness, and humility</strong>.
+            </p>
+          </div>
+
+          <!-- Interactive Light Experience Slider -->
+          <div class="light-slider-experience">
+            <div class="slider-labels">
+              <span class="label-darkness">🌑 Ignorance & Darkness</span>
+              <span class="slider-instruction">Slide to illuminate the realm</span>
+              <span class="label-light">🌕 Wisdom & Inner Light</span>
+            </div>
+            
+            <div class="slider-wrapper">
+              <input type="range" id="illuminationSlider" min="0" max="100" value="85" class="custom-slider" aria-label="Illumination control slider">
+              <div class="slider-track-fill" id="sliderTrackFill"></div>
+            </div>
+
+            <div class="virtues-reveal-grid" id="virtuesGrid">
+              <div class="virtue-chip" data-level="25">
+                <span class="chip-glow"></span>
+                <span class="chip-icon">🕊️</span>
+                <span class="chip-title">Inner Peace</span>
+                <span class="chip-desc">Quiet sanctuary within the heart</span>
+              </div>
+              <div class="virtue-chip" data-level="50">
+                <span class="chip-glow"></span>
+                <span class="chip-icon">💛</span>
+                <span class="chip-title">Compassion</span>
+                <span class="chip-desc">Empathy that uplifts every soul</span>
+              </div>
+              <div class="virtue-chip" data-level="75">
+                <span class="chip-glow"></span>
+                <span class="chip-icon">🤝</span>
+                <span class="chip-title">Kindness</span>
+                <span class="chip-desc">Warmth radiating to all beings</span>
+              </div>
+              <div class="virtue-chip" data-level="90">
+                <span class="chip-glow"></span>
+                <span class="chip-icon">🌸</span>
+                <span class="chip-title">Humility</span>
+                <span class="chip-desc">Wisdom that remains grounded</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: CORE SYMBOLS OF DIWALI -->
+    <section id="symbols" class="content-section symbols-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">SACRED EMBLEMS</span>
+          <h2 class="section-title">Core Symbols of Diwali</h2>
+          <div class="golden-divider">
+            <span class="divider-line"></span>
+            <span class="divider-gem">🌺</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <div class="core-summary-banner glass-panel">
+          <div class="banner-diya-art">🪔</div>
+          <div class="banner-content">
+            <p class="docx-lead-text">
+              Diwali is celebrated with symbolic items like <strong>diyas, rangoli, sweets, and garlands</strong>.
+            </p>
+            <p class="docx-body-text">
+              <strong>Diyas</strong>, central to Diwali decor, symbolize purity and enlightenment, while <strong>rangoli</strong> designs welcome guests and deities alike. <strong>Sweets</strong> are shared among family and friends, embodying the joy of togetherness and prosperity.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: DIYAS, RANGOLI, FLOWERS, SWEETS (THE FOUR PILLARS) -->
+    <section id="four-pillars" class="content-section pillars-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">CELEBRATION IN DETAIL</span>
+          <h2 class="section-title">Diyas (Oil Lamps), Rangoli, Flowers, Sweets</h2>
+          <p class="section-subtext">
+            “Diyas, or oil lamps, are lit in homes and temples to create an atmosphere of warmth and positivity. Rangoli, often made with coloured powders or flowers, adorns doorsteps and signifies luck and beauty. Flowers decorate puja spaces, and sweets are exchanged to spread joy and friendship during Diwali.”
+          </p>
+          <div class="golden-divider">
+            <span class="divider-line"></span>
+            <span class="divider-gem">✨</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <div class="pillars-showcase-grid">
+
+          <!-- Card 1: Diyas -->
+          <article class="pillar-card glass-panel" id="cardDiya">
+            <div class="pillar-media">
+              <img src="assets/images/diya.jpg" alt="Glowing traditional brass diya oil lamp adorned with marigold petals" class="pillar-img" loading="lazy">
+              <div class="pillar-badge">🪔 Oil Lamps</div>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Diyas (Oil Lamps)</h3>
+              <p class="pillar-symbolism">Symbol of Purity, Hope & Enlightenment</p>
+              <p class="pillar-text">
+                Diyas, or oil lamps, are lit in homes and temples to create an atmosphere of warmth and positivity. Central to Diwali decor, they dispel shadows and represent the eternal light dwelling in every heart.
+              </p>
+              <div class="pillar-action">
+                <button class="interactive-pill-btn kindle-btn" onclick="kindleCardDiya(this)">
+                  <span class="flame-icon">🔥</span>
+                  <span>Kindle This Diya</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Rangoli -->
+          <article class="pillar-card glass-panel" id="cardRangoli">
+            <div class="pillar-media">
+              <img src="assets/images/rangoli.jpg" alt="Vibrant symmetrical Rangoli mandala made with colorful powders and diyas" class="pillar-img" loading="lazy">
+              <div class="pillar-badge">🎨 Sacred Art</div>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Rangoli</h3>
+              <p class="pillar-symbolism">Symbol of Luck, Harmony & Welcome</p>
+              <p class="pillar-text">
+                Rangoli, often made with coloured powders or flowers, adorns doorsteps and signifies luck and beauty. Intricate symmetrical patterns welcome guests, deities, and radiant cosmic harmony into the household.
+              </p>
+              <div class="pillar-action">
+                <button class="interactive-pill-btn shimmer-btn" onclick="shimmerRangoli(this)">
+                  <span class="palette-icon">✨</span>
+                  <span>Shimmer Colors</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Flowers & Garlands -->
+          <article class="pillar-card glass-panel" id="cardFlowers">
+            <div class="pillar-media flowers-custom-media">
+              <!-- Decorative rich visual art for Flowers -->
+              <div class="flowers-backdrop">
+                <div class="garland-garland garland-top"></div>
+                <div class="flower-emblem">🌸</div>
+                <div class="garland-garland garland-bottom"></div>
+              </div>
+              <div class="pillar-badge">🌺 Auspicious Decor</div>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Flowers & Garlands</h3>
+              <p class="pillar-symbolism">Symbol of Beauty, Freshness & Devotion</p>
+              <p class="pillar-text">
+                Flowers decorate puja spaces and entrance torans to spread fragrant freshness and grace. Marigold garlands and sacred jasmine embody divine blessings, purity, and festive celebration.
+              </p>
+              <div class="pillar-action">
+                <button class="interactive-pill-btn bloom-btn" onclick="showerFlowerPetals(this)">
+                  <span class="flower-icon">🌼</span>
+                  <span>Shower Petals</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Sweets -->
+          <article class="pillar-card glass-panel" id="cardSweets">
+            <div class="pillar-media">
+              <img src="assets/images/sweets.jpg" alt="Festive assortment of Indian sweets, laddoos, kaju katli, jalebi and gulab jamun" class="pillar-img" loading="lazy">
+              <div class="pillar-badge">🍬 Mithai Feasts</div>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Sweets (Mithai)</h3>
+              <p class="pillar-symbolism">Symbol of Sweetness, Generosity & Friendship</p>
+              <p class="pillar-text">
+                Sweets are exchanged to spread joy and friendship during Diwali. From motichoor laddoos to silver-leaf kaju katli, sharing delicacies embodies the sweetness of togetherness, goodwill, and mutual prosperity.
+              </p>
+              <div class="pillar-action">
+                <button class="interactive-pill-btn sweet-btn" onclick="shareSweetWish(this)">
+                  <span class="sweet-icon">🎁</span>
+                  <span>Share Mithai Wish</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GRAND FINALE: HAPPY DIWALI & WISH GENERATOR -->
+    <section id="wishes" class="content-section finale-section">
+      <div class="section-container">
+        
+        <div class="finale-banner">
+          <div class="firework-launcher-badge">
+            <span>🎆 Tap anywhere for Fireworks! 🎆</span>
+          </div>
+          <h2 class="grand-diwali-title">HAPPY DIWALI</h2>
+          <p class="grand-diwali-subtitle">
+            May the divine light of Deepavali illuminate your life with peace, boundless joy, good health, and glorious prosperity.
+          </p>
+
+          <!-- Interactive Wish Maker Card -->
+          <div class="wish-maker-box glass-panel">
+            <h3 class="wish-box-title">✨ Create & Send Diwali Wishes</h3>
+            <p class="wish-box-desc">Personalize your Diwali greeting and share it with friends and loved ones:</p>
+            
+            <div class="wish-input-row">
+              <input type="text" id="senderNameInput" placeholder="Enter your name (e.g. Manivannan)" class="custom-input" maxlength="40">
+              <button id="generateWishBtn" class="btn btn-primary">
+                <span>Personalize Wish</span>
+              </button>
+            </div>
+
+            <div class="wish-card-preview" id="wishCardPreview">
+              <div class="preview-inner">
+                <span class="preview-diya">🪔</span>
+                <p class="preview-greeting" id="previewGreetingText">
+                  “Wishing you and your family a joyous, radiant, and prosperous Deepavali! May the divine lamps guide you toward success and endless blessings.”
+                </p>
+                <p class="preview-sender" id="previewSenderText">— Warm wishes from Magna & Friends</p>
+              </div>
+            </div>
+
+            <div class="wish-share-actions">
+              <button id="copyWishBtn" class="share-btn copy-btn">
+                <span>📋 Copy Wish</span>
+              </button>
+              <button id="whatsappWishBtn" class="share-btn whatsapp-btn">
+                <span>💬 Share on WhatsApp</span>
+              </button>
+              <button id="burstFireworksBtn" class="share-btn fireworks-btn">
+                <span>🎇 Burst Firecrackers</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: QR CODE & MOBILE SCANNING SECTION -->
+    <section id="qrcode" class="content-section qrcode-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">MOBILE ACCESS & SCAN GATEWAY</span>
+          <h2 class="section-title">Scan QR Code to Open Webpage</h2>
+          <p class="section-subtext">
+            Scan this QR code with any smartphone camera or lens to instantly visit this Diwali celebration page anywhere, anytime!
+          </p>
+          <div class="golden-divider">
+            <span class="divider-line"></span>
+            <span class="divider-gem">📱</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <div class="qr-showcase-grid">
+
+          <!-- Left Card: Interactive QR Display -->
+          <div class="qr-main-card glass-panel">
+            <div class="qr-card-header">
+              <div class="qr-badge">SHUBH DEEPAVALI</div>
+              <h3 class="qr-headline">Official Celebration Page</h3>
+              <p class="qr-subheadline">Instant Mobile Access</p>
+            </div>
+
+            <div class="qr-image-container">
+              <div class="qr-frame">
+                <img src="assets/images/qrcode.png" alt="Scan QR Code to open Diwali celebration page" class="qr-code-img" id="mainQrCodeImg">
+                <div class="qr-corner-accent corner-tl"></div>
+                <div class="qr-corner-accent corner-tr"></div>
+                <div class="qr-corner-accent corner-bl"></div>
+                <div class="qr-corner-accent corner-br"></div>
+              </div>
+              <div class="qr-scan-pulse"></div>
+            </div>
+
+            <div class="qr-url-display">
+              <span class="url-label">LIVE PAGE URL:</span>
+              <a href="https://magnache.github.io/diwaliqr/" target="_blank" rel="noopener noreferrer" class="url-link" id="livePageUrlLink">
+                https://magnache.github.io/diwaliqr/
+              </a>
+              <button id="copyUrlBtn" class="mini-copy-btn" title="Copy URL">Copy</button>
+            </div>
+
+            <div class="qr-actions-row">
+              <a href="assets/images/qrcode.png" download="diwali-page-qr.png" class="btn btn-primary qr-download-btn">
+                <span>📥 Download QR Code</span>
+              </a>
+              <a href="assets/images/diwali_qr_card.png" download="diwali-celebration-card.png" class="btn btn-secondary qr-download-btn">
+                <span>🖼️ Download Festive Card</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Card: Festive Card & Guide -->
+          <div class="qr-info-card glass-panel">
+            <h3 class="info-title">How to Scan on Mobile</h3>
+            
+            <div class="scan-steps-list">
+              <div class="scan-step">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                  <h4>Open Camera</h4>
+                  <p>Open the camera app on your iPhone or Android phone, or use Google Lens / WhatsApp scanner.</p>
+                </div>
+              </div>
+
+              <div class="scan-step">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                  <h4>Point at the QR Code</h4>
+                  <p>Hold your camera steady over the QR code on the screen or printed festive card.</p>
+                </div>
+              </div>
+
+              <div class="scan-step">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                  <h4>Tap the Link Banner</h4>
+                  <p>Tap the notification link to instantly open this golden Diwali celebration experience on your phone!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="festive-card-mini-preview">
+              <div class="preview-header">
+                <span>✨ Downloadable Festive Greeting Card</span>
+              </div>
+              <img src="assets/images/diwali_qr_card.png" alt="Diwali branded celebration card with QR code" class="festive-card-thumb">
+              <a href="assets/images/diwali_qr_card.png" target="_blank" class="card-expand-link">View Full Resolution Card (900×1200) →</a>
+            </div>
+
+            <div class="github-deployment-badge">
+              <div class="gh-icon">🐙</div>
+              <div class="gh-info">
+                <strong>Hosted on GitHub Pages</strong>
+                <span>User: <code>magnache</code> | Repository: <code>diwaliqr</code></span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="festive-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="footer-icon">🪔</span>
+          <span class="footer-title">Diwali • Deepavali Celebrations</span>
+        </div>
+        <p class="footer-motto">
+          “May this festival of lights illuminate your path with boundless wisdom, prosperity, and joy.”
+        </p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-credits">
+          Crafted with devotion for Diwali Celebrations • GitHub: <a href="https://github.com/magnache" target="_blank" rel="noopener">@magnache</a>
+        </p>
+        <div class="footer-tags">
+          <span>Diyas</span> • <span>Rangoli</span> • <span>Flowers</span> • <span>Sweets</span> • <span>Light Over Darkness</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QUICK SCAN QR MODAL POPUP -->
+  <div class="qr-modal-backdrop" id="qrModalBackdrop" aria-hidden="true">
+    <div class="qr-modal glass-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="closeQrModalBtn" aria-label="Close modal">×</button>
+      
+      <div class="modal-header">
+        <span class="modal-badge">🪔 SCAN TO EXPERIENCE</span>
+        <h3 id="modalTitle" class="modal-title">Diwali Webpage QR Code</h3>
+        <p class="modal-subtitle">Point your phone's camera at this code to view this page</p>
+      </div>
+
+      <div class="modal-qr-frame">
+        <img src="assets/images/qrcode.png" alt="Diwali Webpage QR Code" class="modal-qr-img">
+      </div>
+
+      <div class="modal-url-box">
+        <code id="modalUrlCode">https://magnache.github.io/diwaliqr/</code>
+      </div>
+
+      <div class="modal-actions">
+        <button id="modalCopyBtn" class="btn btn-secondary">📋 Copy Link</button>
+        <a href="https://magnache.github.io/diwaliqr/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🚀 Open Live Page</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toastNotification" class="toast-notification" aria-live="polite"></div>
+
+  <!-- Core JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

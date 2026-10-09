@@ -1,0 +1,11 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Temporary Word doc unpacked artifacts
+word/
+[Content_Types].xml
+_rels/
+docProps/
